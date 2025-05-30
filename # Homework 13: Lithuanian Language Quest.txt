@@ -1,0 +1,50 @@
+# Homework 13: Lithuanian Language Question Answering System
+
+## Overview
+
+Create a Python script that accepts a user's question, determines if it's in Lithuanian language,
+and if so, provides an answer to the question using an OpenAI language model.
+
+## Technical requirements
+
+- use UV to initialise and store dependencies.
+- Store the code in the github.
+
+## Reference Example
+
+See the example of using structured/JSON response in Python OpenAI at:
+`samples\json-mode\json_mode_applied.py`
+
+## Requirements
+
+1. **User Input**
+
+   - Create a console input that accepts a user question
+   - Example: `question = input("Enter your question: ")`
+
+2. **Language Detection Model**
+
+   - Create a Pydantic model for language detection:
+
+   ```python
+   class LithuanianQuestionCheck(BaseModel):
+       is_lithuanian_language: bool
+   ```
+
+3. **JSON Mode Implementation**
+
+   - Use the 'response_model' parameter in chat completions to parse the response into your model
+   - Make sure to set 'json_mode' correctly in your API call
+
+4. **Language Verification**
+
+   - Add conditional logic to check if the question is in Lithuanian language
+   - Use the parsed response to make this determination
+
+5. **Question Answering**
+   - If the question is in Lithuanian, make a second API call to answer the question
+   - Format the response appropriately for display to the user
+
+## Submission
+
+Create a Python script that implements all the requirements above.
