@@ -4,15 +4,15 @@ from pydantic import BaseModel
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
-# 1. Load API key from .env
+# Load your OpenAI API key
 load_dotenv()
 api_key = os.getenv("PASLAPTELE")
 
-# 2. Define Pydantic model for structured output
+# Define Pydantic model for structured output
 class LithuanianQuestionCheck(BaseModel):
     is_lithuanian_language: bool
 
-# 3. Set up the model WITH bind() and proper structure
+# Create a bound model for language check
 model_check = ChatOpenAI(
     model="gpt-4o",
     temperature=0,
@@ -22,14 +22,14 @@ model_check = ChatOpenAI(
     json_mode=True
 )
 
-# 4. Standard model for answering questions
+# Create a regular model for answeringl
 model_answer = ChatOpenAI(
     model="gpt-4o",
     temperature=0,
     api_key=api_key
 )
 
-# 5. Main loop
+# Start asking
 while True:
     klausimas = input("Įveskite klausimą, jei nori išeit 'exit': ")
 
